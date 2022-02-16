@@ -5,7 +5,8 @@
     "main": "./src/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon src/index.ts"
+        "dev": "nodemon src/index.ts --dest-cpu=arm64",
+        "prod": "pm2 start src/index.ts --attach --wait-ready --listen-timeout 10000"
     },
     "repository": {
         "type": "git",
@@ -18,8 +19,10 @@
     },
     "homepage": "https://github.com/joaodematejr/EasyInnerNode#readme",
     "dependencies": {
+        "chalk": "^2.4.1",
         "ffi-napi": "^4.0.3",
         "finalize": "https://github.com/joaodematejr/finalize.js.git",
+        "moment": "^2.29.1",
         "ref-array-napi": "^1.2.2",
         "ref-napi": "^3.0.3",
         "ref-struct-di": "^1.1.1",
@@ -27,7 +30,7 @@
     },
     "devDependencies": {
         "nodemon": "^2.0.15",
-        "ts-node": "^10.4.0",
+        "ts-node": "^10.5.0",
         "typescript": "^4.5.5"
     }
 }
